@@ -1,0 +1,42 @@
+using System;
+
+  public class OutClass
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+  
+    public void Name()
+    {
+        Console.WriteLine($"FirstName: {FirstName}, LastName: {LastName}");
+    }
+ 
+    public class InnerClass
+    {
+
+        public string Address { get; set; }
+        public string Country { get; set; }
+
+        public void Info()
+        {
+            Console.WriteLine($"Address: {Address}, Country: {Country}");
+        }
+    }
+}
+
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        OutClass Out = new OutClass();
+        Out.FirstName = "Aziza";
+        Out.LastName = "Diab";
+        Out.Name();
+        OutClass.InnerClass Inner = new OutClass.InnerClass();
+        Inner.Address = "34St";
+        Inner.Country = "Eygpt";
+        Inner.Info();
+
+        Console.ReadKey();
+    }
+}

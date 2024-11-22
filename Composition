@@ -1,0 +1,43 @@
+using System;
+using System.Diagnostics.SymbolStore;
+
+class ClassA
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    public void Name()
+    {
+        Console.WriteLine($"FirstName: {FirstName}, LastName: {LastName}");
+
+        ClassB B1 = new ClassB();
+        B1.Address = "23St";
+        B1.Country = "Ejgpt";
+        B1.Info();
+
+    } 
+}
+
+ class ClassB 
+{
+    public string Address { get; set; }
+    public string Country { get; set; }
+
+    public void Info()
+    {
+        Console.WriteLine($"Address: {Address}, Country: {Country}");
+    }
+}
+
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        ClassA A1 = new ClassA();
+        A1.FirstName = "Aziza";
+        A1.LastName = "Diab";
+        A1.Name();
+        Console.ReadKey();
+    }
+}
