@@ -1,0 +1,58 @@
+using System;
+using System.Diagnostics.SymbolStore;
+
+ public class ClassA
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+     public virtual void Name()
+    {
+        Console.WriteLine($"FirstName: {FirstName}, LastName: {LastName}");
+
+    } 
+}
+
+    public class ClassB : ClassA
+{
+    public string Address { get; set; }
+    public string Country { get; set; }
+
+    public sealed override void Name()
+    {
+        Console.WriteLine($"FirstName: {FirstName}, LastName: {LastName}");
+
+    }
+
+    public void Info()
+    {
+        Console.WriteLine($"Address: {Address}, Country: {Country}");
+    }
+}
+
+public class CalssC : ClassB
+{
+
+    //public override void Name() //error
+    //{
+    //    Console.WriteLine($"FirstName: {FirstName}, LastName: {LastName}");
+
+    //}
+}
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        ClassA A1 = new ClassA();
+        A1.FirstName = "Aziza";
+        A1.LastName = "Diab";
+        A1.Name();
+
+        ClassB B1 = new ClassB();
+        B1.FirstName = "Mona";
+        B1.LastName = "Diab";
+        B1.Name();
+        Console.ReadKey();
+    }
+}
